@@ -1,0 +1,12 @@
+//Gradle build script for Groovy-based projects
+apply from: 'build-java.build'
+
+//========================//
+//       Plugins          //  
+//========================//
+apply plugin: 'groovy'
+ 
+[compileGroovy, compileTestGroovy]*.options*.encoding = 'ISO-8859-1'
+
+//TODO sourceCompatibility = 1.8 ?
+

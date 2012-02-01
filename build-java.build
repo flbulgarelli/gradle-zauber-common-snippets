@@ -1,0 +1,73 @@
+//Parent build file for all Zauber Projects. 
+//Provides configurations common to all Zauber projects.
+
+//========================//
+//     Maven Config       //
+//========================//  
+apply plugin: "maven"
+isReleaseVersion = !version.endsWith("SNAPSHOT")
+
+//========================//
+//       Eclipse          //  
+//========================//
+apply plugin: 'eclipse'
+
+//========================//
+//        Java            // 
+//========================//
+apply plugin: 'java'
+[compileJava, compileTestJava]*.options*.encoding = 'ISO-8859-1'
+sourceCompatibility = 1.6   
+
+//=========================//
+//   Source Distribution   //
+//=========================//
+
+// TODO: verify
+task intTestJar(type: Jar) << {
+  from sourceSets.intTest.output
+}
+
+task intTestJavadoc(type: Javadoc) << {
+  source sourceSets.intTest.allJava
+}
+
+//=========================//
+//  Artifacts Signing      //
+//=========================//
+apply plugin: 'signing'
+signing {
+
+    if (isReleaseVersion) {
+//      sign configurations.archives
+    }
+}
+
+//========================//
+// Dependency Management  //
+//========================//
+
+configurations.all {
+  transitive = true
+
+  resolutionStrategy {
+  failOnVersionConflict()
+  }
+}
+
+//========================//
+//      Repositories      //
+//========================//
+repositories {
+    mavenCentral()
+    mavenLocal()
+   //TODO add repos here
+}
+
+
+//========================//
+//   Tests Conventions    //
+//========================//
+test {
+  exclude '**/*Driver*'
+}
