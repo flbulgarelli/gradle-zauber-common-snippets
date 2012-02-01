@@ -10,7 +10,7 @@ isReleaseVersion = !version.endsWith("SNAPSHOT")
 //========================//
 //       Eclipse          //  
 //========================//
-apply plugin: 'eclipse'
+aply plugin: 'eclipse'
 
 //========================//
 //        Java            // 
