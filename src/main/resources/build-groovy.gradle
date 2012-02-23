@@ -8,5 +8,6 @@ apply plugin: 'groovy'
  
 [compileGroovy, compileTestGroovy]*.options*.encoding = 'ISO-8859-1'
 
-//TODO sourceCompatibility = 1.8 ?
-
+dependencies {
+  groovy 'org.codehaus.groovy:groovy-all:1.8.4'
+}
