@@ -1,0 +1,16 @@
+slf4jVersion              = "1.6.1"
+log4jVersion              = "1.2.15"
+
+configurations.all {
+  exclude group: 'commons-logging'
+
+  resolutionStrategy {
+    force "org.slf4j:slf4j-api:${slf4jVersion}"
+    force "log4j:log4j:${log4jVersion}"
+
+    exclude group: 'javax.mail', module: 'mail'
+    exclude group: 'javax.jms', module: 'jms'
+    exclude group: 'com.sun.jmx', module: 'jmxri'
+    exclude group: 'com.sun.jdmk', module: 'jmxtools'
+  }
+}

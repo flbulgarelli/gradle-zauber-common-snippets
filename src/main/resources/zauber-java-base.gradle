@@ -1,0 +1,9 @@
+commonsLangVersion        = "2.5"
+commonsCollectionsVersion = "3.2.1"
+
+configurations.all {
+  resolutionStrategy {
+    force "commons-lang:commons-lang:${commonsLangVersion}"
+    force "commons-collections:commons-collections:${commonsCollectionsVersion}"
+  }
+}
