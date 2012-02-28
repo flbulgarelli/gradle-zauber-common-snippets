@@ -1,5 +1,4 @@
 //Gradle build script for Groovy-based projects
-require 'zauber-java'
 
 //========================//
 //       Plugins          //  
