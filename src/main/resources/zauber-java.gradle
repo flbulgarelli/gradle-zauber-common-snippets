@@ -74,6 +74,7 @@ repositories {
       username = zauberlabsUsername
       password = zauberlabsPassword
     }
+    mavenLocal()
     maven {
       name "Code releases"
       credentials credentialsData
