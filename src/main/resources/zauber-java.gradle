@@ -5,7 +5,6 @@
 //     Maven Config       //
 //========================//  
 apply plugin: "maven"
-isReleaseVersion = !version.endsWith("SNAPSHOT")
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -48,10 +47,7 @@ task intTestJavadoc(type: Javadoc) << {
 //=========================//
 apply plugin: 'signing'
 signing {
-
-    if (isReleaseVersion) {
-//      sign configurations.archives
-    }
+  required = !version.endsWith("SNAPSHOT")
 }
 
 //========================//
